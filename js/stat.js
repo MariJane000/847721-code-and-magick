@@ -38,7 +38,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (thisName === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-	  var color = getRand(0, 100);
+      var color = getRand(0, 100);
       ctx.fillStyle = 'hsl(240, ' + color + '%, 50%)';
     }
 
