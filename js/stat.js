@@ -2,10 +2,9 @@
 
 window.renderStatistics = function (ctx, names, times) {
 
-  var getRand = function (from, to) {  
+  var getRand = function (from, to) {
     return Math.floor(Math.random() * (to - from + 1)) + from;
   };
-  
   var namesNum = names.length;
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect(110, 20, 420, 270);
@@ -39,8 +38,8 @@ window.renderStatistics = function (ctx, names, times) {
     if (thisName === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      var randomSaturation = getRand (0, 128);
-      ctx.fillStyle = 'rgba(' + randomSaturation + ', ' + randomSaturation + ', ' + (255 - randomSaturation) + ', 1)';
+	  var color = getRand(0, 100);
+      ctx.fillStyle = 'hsl(240, ' + color + '%, 50%)';
     }
 
     ctx.fillRect(155 + (90 * i), 90 + (150 - columnHeight), 40, columnHeight);
