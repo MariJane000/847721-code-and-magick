@@ -2,46 +2,54 @@
 
 window.renderStatistics = function (ctx, names, times) {
 
-  var getRand = function (from, to) {
+  var RECT_HEIGHT = 270;
+  var RECT_WIDTH = 420;
+  var RECT_X_OFFSET = 100;
+  var RECT_Y_OFFSET = 10;
+  var TITLE_X_OFFSET = 130;
+  var TITLE_Y_OFFSET = 40;
+  
+  var getRandom = function (from, to) {
     return Math.floor(Math.random() * (to - from + 1)) + from;
   };
+
   var namesNum = names.length;
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect(110, 20, 420, 270);
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(100, 10, 420, 270);
-  ctx.fillStyle = '#000000';
+  ctx.fillRect(RECT_X_OFFSET + 10 , RECT_Y_OFFSET + 10, RECT_WIDTH, RECT_HEIGHT);
+  ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+  ctx.fillRect(RECT_X_OFFSET, RECT_Y_OFFSET, RECT_WIDTH, RECT_HEIGHT);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.font = '16px "PT Mono"';
-  ctx.fillText('Ура вы победили!', 130, 40);
-  ctx.fillText('Список результатов:', 130, 60);
+  ctx.fillText('Ура вы победили!', TITLE_X_OFFSET, TITLE_Y_OFFSET);
+  ctx.fillText('Список результатов:', TITLE_X_OFFSET, TITLE_Y_OFFSET + 20);
 
-  var maxNumInArray = function (arr) {
-    var max = arr[0];
-    for (var i = 1; i < arr.length; i++) {
-      if (arr[i] > max) {
-        max = arr[i];
+  var getMaxNumInArray = function (array) {
+    var maxValue = array[0];
+    for (var i = 1; i < array.length; i++) {
+      if (array[i] > maxValue) {
+        maxValue = array[i];
       }
     }
-    return max;
+    return maxValue;
   };
 
-  var maxTime = maxNumInArray(times);
+  var maxTime = getMaxNumInArray(times);
 
   for (var i = 0; i < namesNum; i++) {
-    var thisName = names[i];
-    var thisTime = times[i];
-    var columnHeight = 150 * (thisTime / maxTime);
-    ctx.fillStyle = '#000000';
-    ctx.fillText(thisName, 155 + (90 * i), 260);
-    ctx.fillText(Math.round(thisTime), 155 + (90 * i), 80 + (150 - columnHeight));
+    var playerName = names[i];
+    var playerTime = times[i];
+    var columnHeight = 150 * (playerTime / maxTime);
+    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    ctx.fillText(playerName, 155 + (90 * i), 260);
+    ctx.fillText(Math.round(playerTime), 155 + (90 * i), 80 + (150 - columnHeight));
 
-    if (thisName === 'Вы') {
+    if (playerName === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      var color = getRand(0, 100);
-      ctx.fillStyle = 'hsl(240, ' + color + '%, 50%)';
+	    // Здесь использую hsl, потому что в hsl удобно работать с насыщенностью.
+      ctx.fillStyle = 'hsl(240, ' + getRandom(0, 100) + '%, 50%)';
     }
-
+    
     ctx.fillRect(155 + (90 * i), 90 + (150 - columnHeight), 40, columnHeight);
   }
 
