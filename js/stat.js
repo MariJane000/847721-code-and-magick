@@ -10,15 +10,15 @@ window.renderStatistics = function (ctx, names, times) {
   var TITLE_Y_OFFSET = 40;
   var FIRST_COLUMN_X_OFFSET = 155;
   var COLUMN_Y_OFFSET = 90;
-  var COLUMN_WIDTH = 40; 
+  var COLUMN_WIDTH = 40;
 
   var getRandom = function (from, to) {
     return Math.floor(Math.random() * (to - from + 1)) + from;
   };
 
-  var drawRectangle = function (ctx, color, x, y, width, height) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
+  var drawRectangle = function (context, color, x, y, width, height) {
+    context.fillStyle = color;
+    context.fillRect(x, y, width, height);
   };
 
   var getMaxNumberInArray = function (array) {
@@ -49,7 +49,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(Math.round(playerTime), 155 + (90 * i), 80 + (150 - columnHeight));
     // Здесь использую hsl, потому что в hsl удобно работать с насыщенностью.
     var columnColor = playerName === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, ' + getRandom(0, 100) + '%, 50%)';
-    drawRectangle(ctx, columnColor, FIRST_COLUMN_X_OFFSET + (90 * i),  COLUMN_Y_OFFSET + (150 - columnHeight), COLUMN_WIDTH, columnHeight);
+    drawRectangle(ctx, columnColor, FIRST_COLUMN_X_OFFSET + (90 * i), COLUMN_Y_OFFSET + (150 - columnHeight), COLUMN_WIDTH, columnHeight);
   }
 
 };
