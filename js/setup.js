@@ -126,7 +126,7 @@ document.addEventListener('keydown', onPopupCloseIconEnterKeydown);
 
 document.querySelector('.setup-wizard .wizard-coat').addEventListener('click', function () {
   var newCoatColor = COAT_COLOR[getRandom(0, COAT_COLOR.length - 1)];
-  while (newCoatColor == document.querySelector('.setup-wizard .wizard-coat').style.fill) {
+  while (newCoatColor === document.querySelector('.setup-wizard .wizard-coat').style.fill) {
     newCoatColor = COAT_COLOR[getRandom(0, COAT_COLOR.length - 1)];
   }
   document.querySelector('.setup-wizard .wizard-coat').style.fill = newCoatColor;
@@ -135,7 +135,7 @@ document.querySelector('.setup-wizard .wizard-coat').addEventListener('click', f
 
 document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', function () {
   var newEyesColor = EYES_COLOR[getRandom(0, EYES_COLOR.length - 1)];
-  while (newEyesColor == document.querySelector('.setup-wizard .wizard-eyes').style.fill) {
+  while (newEyesColor === document.querySelector('.setup-wizard .wizard-eyes').style.fill) {
     newEyesColor = EYES_COLOR[getRandom(0, EYES_COLOR.length - 1)];
   }
   document.querySelector('.setup-wizard .wizard-eyes').style.fill = newEyesColor;
@@ -144,7 +144,7 @@ document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', f
 
 document.querySelector('.setup-fireball-wrap').addEventListener('click', function () {
   var newFireballColor = FIREBALL_COLOR[getRandom(0, FIREBALL_COLOR.length - 1)];
-  while (newFireballColor == document.querySelector('.setup-fireball-wrap').style.background) {
+  while (newFireballColor === document.querySelector('.setup-fireball-wrap').style.background) {
     newFireballColor = FIREBALL_COLOR[getRandom(0, FIREBALL_COLOR.length - 1)];
   }
   document.querySelector('.setup-fireball-wrap').style.background = newFireballColor;
