@@ -131,13 +131,13 @@ document.querySelector('.setup-wizard .wizard-coat').addEventListener('click', f
 });
 
 document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', function () {
-  var newEyesColor = EYES_COLOR[getRandom(0, EYES_COLOR.length - 1)]
+  var newEyesColor = EYES_COLOR[getRandom(0, EYES_COLOR.length - 1)];
   document.querySelector('.setup-wizard .wizard-eyes').style.fill = newEyesColor;
   document.querySelector('[name="eyes-color"]').value = newEyesColor;
 });
 
 document.querySelector('.setup-fireball-wrap').addEventListener('click', function () {
-  var newFireballColor = FIREBALL_COLOR[getRandom(0, FIREBALL_COLOR.length - 1)]
+  var newFireballColor = FIREBALL_COLOR[getRandom(0, FIREBALL_COLOR.length - 1)];
   document.querySelector('.setup-fireball-wrap').style.background = newFireballColor;
   document.querySelector('[name="fireball-color"]').value = newFireballColor;
 });
