@@ -10,6 +10,9 @@ body
 
     color: #fff;
     background: #da641a;
+    
+    /* При перетаскивании вправо появляется скролл */
+    overflow-x: hidden;
 }
 
 h1,
