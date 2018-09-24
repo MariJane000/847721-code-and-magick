@@ -39,7 +39,7 @@ window.dialogDragAndDrop = function (evt) {
     if (dragged) {
       var onClick = function (clickEvt) {
         clickEvt.preventDefault();
-        userPic.removeEventListener('click', onClickPreventDefault);
+        userPic.removeEventListener('click', onClick);
       };
       userPic.addEventListener('click', onClick);
     }
