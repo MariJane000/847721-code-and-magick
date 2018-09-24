@@ -1,6 +1,6 @@
 'use strict';
 
-var dialogDragAndDrop = function (evt) {
+window.dialogDragAndDrop = function (evt) {
 
   var userPic = document.querySelector('.upload');
   var setup = document.querySelector('.setup');
@@ -40,12 +40,11 @@ var dialogDragAndDrop = function (evt) {
     document.removeEventListener('mouseup', onMouseUp);
 
     if (dragged) {
-      var onClickPreventDefault = function (evt) {
-        evt.preventDefault();
+      var onClickPreventDefault = function (clickEvt) {
+        clickEvt.preventDefault();
         userPic.removeEventListener('click', onClickPreventDefault);
       };
-      userPic.addEventListener('click',
-        onClickPreventDefault);
+      userPic.addEventListener('click', onClickPreventDefault);
     }
   };
 
