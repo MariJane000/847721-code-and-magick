@@ -5,8 +5,6 @@ window.dialogDragAndDrop = function (evt) {
   var userPic = document.querySelector('.upload');
   var setup = document.querySelector('.setup');
 
-  evt.preventDefault();
-
   var startCoords = {
     x: evt.clientX,
     y: evt.clientY
@@ -25,9 +23,16 @@ window.dialogDragAndDrop = function (evt) {
       x: moveEvt.clientX,
       y: moveEvt.clientY
     };
+
+    moveEvt.preventDefault();
+    setup.style.top = (setup.offsetTop - shift.y) + 'px';
+    setup.style.left = (setup.offsetLeft - shift.x) + 'px';
   };
 
   var onMouseUp = function (upEvt) {
+    // if (true) {
+    //   evt.preventDefault();
+    // }
     upEvt.preventDefault();
 
     document.removeEventListener('mousemove', onMouseMove);
