@@ -25,12 +25,6 @@ window.dialogDragAndDrop = function (evt) {
       x: moveEvt.clientX,
       y: moveEvt.clientY
     };
-
-    if ((shift.x > 5 || shift.x < -5) || (shift.y > 5 || shift.y < -5)) {
-      moveEvt.preventDefault();
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
-    }
   };
 
   var onMouseUp = function (upEvt) {
