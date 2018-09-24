@@ -93,11 +93,15 @@ var isSetupOpened = false;
 var closePopup = function () {
   document.querySelector('.setup').classList.add('hidden');
   isSetupOpened = false;
+  document.querySelector('.upload').removeEventListener('mousedown', dialogDragAndDrop);
+  document.querySelector('.setup').style.top = '80px';
+  document.querySelector('.setup').style.left = '50%';
 };
 
 var openPopup = function () {
   document.querySelector('.setup').classList.remove('hidden');
   isSetupOpened = true;
+  document.querySelector('.upload').addEventListener('mousedown', dialogDragAndDrop);
 };
 
 var onPopupEnterKeydown = function (evt) {
