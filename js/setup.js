@@ -2,13 +2,34 @@
 
 (function () {
 
+  var NAMES = [
+    'Иван',
+    'Хуан Себастьян',
+    'Мария',
+    'Кристоф',
+    'Виктор',
+    'Юлия',
+    'Люпита',
+    'Вашингтон'
+  ];
+  var SURNAMES = [
+    'да Марья',
+    'Верон',
+    'Мирабелла',
+    'Вальц',
+    'Онопко',
+    'Топольницкая',
+    'Нионго',
+    'Ирвинг'
+  ];
+
   var wizard = {
     generate: function (numberWizards) {
       var outputList = [];
 
       for (var i = 0; i < numberWizards; i++) {
         var wizardObject = {
-          'name': window.util.NAMES[window.util.getRandom(0, window.util.NAMES.length - 1)] + ' ' + window.util.SURNAMES[window.util.getRandom(0, window.util.SURNAMES.length - 1)],
+          'name': NAMES[window.util.getRandom(0, NAMES.length - 1)] + ' ' + SURNAMES[window.util.getRandom(0, SURNAMES.length - 1)],
           'coatColor': window.util.WizardColor.COAT[window.util.getRandom(0, window.util.WizardColor.COAT.length - 1)],
           'eyesColor': window.util.WizardColor.EYES[window.util.getRandom(0, window.util.WizardColor.EYES.length - 1)]
         };
@@ -56,19 +77,19 @@
   };
 
   var onPopupEnterKeydown = function (evt) {
-    if (!isSetupOpened && evt.keyCode === window.util.Keycode.ENTER && document.querySelector('.setup-open-icon') === document.activeElement) {
+    if (!isSetupOpened && evt.keyCode === window.util.ENTER_KEYCODE && document.querySelector('.setup-open-icon') === document.activeElement) {
       popup.open();
     }
   };
 
   var onPopupEscKeydown = function (evt) {
-    if (isSetupOpened && evt.keyCode === window.util.Keycode.ESC) {
+    if (isSetupOpened && evt.keyCode === window.util.ESC_KEYCODE) {
       popup.close();
     }
   };
 
   var onPopupCloseIconEnterKeydown = function (evt) {
-    if (isSetupOpened && evt.keyCode === window.util.Keycode.ENTER && document.querySelector('.setup-close') === document.activeElement) {
+    if (isSetupOpened && evt.keyCode === window.util.ENTER_KEYCODE && document.querySelector('.setup-close') === document.activeElement) {
       popup.close();
     }
   };

@@ -8,31 +8,9 @@
     return Math.floor(Math.random() * (to - from + 1)) + from;
   };
 
-  var Keycode = {
-    ENTER: 13,
-    ESC: 27
-  };
+  var ENTER_KEYCODE = 13;
+  var ESC_KEYCODE = 27;
 
-  var NAMES = [
-    'Иван',
-    'Хуан Себастьян',
-    'Мария',
-    'Кристоф',
-    'Виктор',
-    'Юлия',
-    'Люпита',
-    'Вашингтон'
-  ];
-  var SURNAMES = [
-    'да Марья',
-    'Верон',
-    'Мирабелла',
-    'Вальц',
-    'Онопко',
-    'Топольницкая',
-    'Нионго',
-    'Ирвинг'
-  ];
   var WizardColor = {
     COAT: [
       'rgb(101, 137, 164)',
@@ -60,9 +38,8 @@
 
   window.util = {
     getRandom: getRandom,
-    Keycode: Keycode,
-    NAMES: NAMES,
-    SURNAMES: SURNAMES,
+    ENTER_KEYCODE: ENTER_KEYCODE,
+    ESC_KEYCODE: ESC_KEYCODE,
     WizardColor: WizardColor
   };
 
