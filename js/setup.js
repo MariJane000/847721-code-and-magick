@@ -2,27 +2,6 @@
 
 (function () {
 
-  var NAMES = [
-    'Иван',
-    'Хуан Себастьян',
-    'Мария',
-    'Кристоф',
-    'Виктор',
-    'Юлия',
-    'Люпита',
-    'Вашингтон'
-  ];
-  var SURNAMES = [
-    'да Марья',
-    'Верон',
-    'Мирабелла',
-    'Вальц',
-    'Онопко',
-    'Топольницкая',
-    'Нионго',
-    'Ирвинг'
-  ];
-
   var drawWizards = function (wizards) {
     var template = document.querySelector('#similar-wizard-template').content;
     var fragment = document.createDocumentFragment();
@@ -34,7 +13,7 @@
       fragment.appendChild(element);
     }
     document.querySelector('.setup-similar-list').appendChild(fragment);
-  }
+  };
 
 
   document.querySelector('.setup-similar').classList.remove('hidden');
@@ -112,7 +91,7 @@
     window.setup.wizards = xhrData;
     drawWizards(window.setup.wizards);
   };
-  
+
   window.backend.load(onWizardsError, setWizards);
 
 })();
