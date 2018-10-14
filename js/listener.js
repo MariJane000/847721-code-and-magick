@@ -17,6 +17,7 @@
     }
     document.querySelector('.setup-wizard .wizard-coat').style.fill = newCoatColor;
     document.querySelector('[name="coat-color"]').value = newCoatColor;
+    window.render.onCoatChange(newCoatColor);
   });
 
   document.querySelector('.setup-wizard .wizard-eyes').addEventListener('click', function () {
@@ -26,6 +27,7 @@
     }
     document.querySelector('.setup-wizard .wizard-eyes').style.fill = newEyesColor;
     document.querySelector('[name="eyes-color"]').value = newEyesColor;
+    window.render.onEyesChange(newEyesColor);
   });
 
   document.querySelector('.setup-fireball-wrap').addEventListener('click', function () {

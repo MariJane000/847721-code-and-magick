@@ -5,11 +5,14 @@
   var drawWizards = function (wizards) {
     var template = document.querySelector('#similar-wizard-template').content;
     var fragment = document.createDocumentFragment();
+    document.querySelectorAll('.setup-similar-item').forEach(function (item) {
+      item.remove();
+    });
     for (var i = 0; i < (wizards.length > 4 ? 4 : wizards.length); i++) {
       var element = template.cloneNode(true);
       element.querySelector('.setup-similar-label').textContent = wizards[i].name;
-      element.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
-      element.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
+      element.querySelector('.wizard-coat').style.fill = wizards[i].colorCoat;
+      element.querySelector('.wizard-eyes').style.fill = wizards[i].colorEyes;
       fragment.appendChild(element);
     }
     document.querySelector('.setup-similar-list').appendChild(fragment);
@@ -83,15 +86,6 @@
     wizards: null
   };
 
-  var onWizardsError = function (message) {
-    throw new Error(message);
-  };
-
-  var setWizards = function (xhrData) {
-    window.setup.wizards = xhrData;
-    drawWizards(window.setup.wizards);
-  };
-
-  window.backend.load(onWizardsError, setWizards);
+  window.drawWizards = drawWizards;
 
 })();
