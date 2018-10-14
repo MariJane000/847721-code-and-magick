@@ -19,7 +19,7 @@
 
     return rank;
 
-  }
+  };
 
   var updateWizards = function () {
 
@@ -35,7 +35,7 @@
 
       }));
 
-  }
+  };
 
   var onWizardsError = function (message) {
     throw new Error(message);
@@ -62,6 +62,6 @@
     onEyesChange: onEyesChange,
     onCoatChange: onCoatChange,
     updateWizards: updateWizards
-  }
+  };
 
 })();
